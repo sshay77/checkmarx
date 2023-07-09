@@ -1,0 +1,6 @@
+.answers li {
+    list-style-type: lower-alpha;
+}
+div , span {
+    margin: 4px;
+}
