@@ -1,4 +1,5 @@
 import React from 'react'
+import Message from './Message'
 
 function Result({ successRate, onRestart }) {
     return (
@@ -7,15 +8,15 @@ function Result({ successRate, onRestart }) {
             <div>Success Rate are {successRate.toFixed(2)}</div>
             {
                 successRate < 50 &&
-                <button onClick={() => onRestart()}>Try Again and improve</button>
+                <Message onRestart={onRestart} text="Try Again and improve" />
             }
             {
                 successRate >= 50 && successRate < 90 &&
-                <button onClick={() => onRestart()}>Nice attempt but try again</button>
+                <Message onRestart={onRestart} text="Nice attempt but try again" />
             }
             {
                 successRate >= 90 &&
-                <button onClick={() => onRestart()}>Way to go Champ!!</button>
+                <Message onRestart={onRestart} text="Way to go Champ!!" />
             }
 
         </>
