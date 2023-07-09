@@ -1,6 +1,7 @@
 .answers li {
     list-style-type: lower-alpha;
     cursor: pointer;
+    margin: 5px;
 }
 div , span {
     margin: 4px;

@@ -4,6 +4,7 @@ import Title from './Title';
 import { baseUrl } from './config';
 import Timer from './Timer';
 import Result from './Result';
+import Answers from './Answers';
 
 function App() {
   const [questions, setQuestions] = useState([]);
@@ -19,8 +20,16 @@ function App() {
     })
   }, []);
 
-  const onAnswer = (qId, answer) => {
-    fetch(baseUrl + 'correct_answers/' + qId)
+  const onRestart = ()=>{
+    setCurrentQuestionId(1);
+    setTime(0);
+    setCorrectAnswers(0);
+  };
+  
+  const question = questions.find(q=> q.id === currentQuestionId)
+  
+  const onAnswer = (answer) => {
+    fetch(baseUrl + 'correct_answers/' + question.id)
     .then(res => res.json())
     .then(correctAnswer=> {
       if(correctAnswer.correct === answer) {
@@ -30,14 +39,6 @@ function App() {
     });
   };
 
-  const onRestart = ()=>{
-    setCurrentQuestionId(1);
-    setTime(0);
-    setCorrectAnswers(0);
-  };
-  
-  const question = questions.find(q=> q.id === currentQuestionId)
-  
   if(questions.length === 0 ) {
     return <div>Loading...</div>
   }else if(!question && questions.length) {
@@ -55,12 +56,7 @@ function App() {
     </div>
    
     <h4>{question.text}</h4>
-    
-    <ol className='answers'>
-      {question.possible_answers.map((answer, i)=>(
-        <li key={i} onClick={()=>onAnswer(question.id, answer)}>{answer}</li>
-    ))}
-    </ol>
+    <Answers onAnswer={onAnswer} answers={question.possible_answers} />
     </>
   );
 }
