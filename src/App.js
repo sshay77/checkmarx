@@ -47,17 +47,17 @@ function App() {
   } 
   
   return (
-    <>
-    <Title />
-   
-    <div>
-      <Timer setTime={setTime} time={time}/>
-      <span>correct answers: {correctAnswers}</span>
+    <div className='container'>
+      <Title />
+    
+      <div className='status'>
+        <Timer setTime={setTime} time={time}/>
+        <span>Score: {correctAnswers}</span>
+      </div>
+    
+      <h4 className='text'>{question.text}</h4>
+      <Answers onAnswer={onAnswer} answers={question.possible_answers} />
     </div>
-   
-    <h4>{question.text}</h4>
-    <Answers onAnswer={onAnswer} answers={question.possible_answers} />
-    </>
   );
 }
 

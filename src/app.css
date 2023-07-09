@@ -2,13 +2,58 @@
     list-style-type: lower-alpha;
     cursor: pointer;
     margin: 5px;
+    padding: 5px;
+    border: 2px solid white;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
 }
-div , span {
+
+div, span {
     margin: 4px;
+}
+
+.container {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ol.answers {
+    padding-inline-start: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white;
 }
 
 #root {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+.status span {
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.text {
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.status {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
