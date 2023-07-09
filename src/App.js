@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useCallback} from 'react';
 import './app.css'
 import Title from './Title';
 import { baseUrl } from './config';
@@ -28,7 +28,7 @@ function App() {
   
   const question = questions.find(q=> q.id === currentQuestionId)
   
-  const onAnswer = (answer) => {
+  const onAnswer = useCallback((answer) => {
     fetch(baseUrl + 'correct_answers/' + question.id)
     .then(res => res.json())
     .then(correctAnswer=> {
@@ -37,7 +37,7 @@ function App() {
       }
       setCurrentQuestionId(id=> id + 1);
     });
-  };
+  }, [question]);
 
   if(questions.length === 0 ) {
     return <div>Loading...</div>

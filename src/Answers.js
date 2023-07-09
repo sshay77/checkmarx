@@ -10,4 +10,4 @@ function Answers({ onAnswer, answers }) {
     )
 }
 
-export default Answers
+export default React.memo(Answers)
