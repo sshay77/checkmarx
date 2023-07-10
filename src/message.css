@@ -1,8 +1,9 @@
 .message {
-    width: fit-content;
+    width: 60%;
     border: 1px solid white;
     border-radius: 5px;
     padding: 10px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }

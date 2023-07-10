@@ -4,8 +4,10 @@ function Answers({ onAnswer, answers }) {
     return (
         <ol className='answers'>
             {answers.map((answer, i) => (
-                <li key={i} onClick={() => onAnswer(answer)}>{answer}</li>
-            ))}
+                <div className='answer' key={i} >
+                    <li onClick={() => onAnswer(answer)}>{answer}</li>
+                </div>
+                ))}
         </ol>
     )
 }
