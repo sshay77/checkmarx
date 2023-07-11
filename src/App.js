@@ -26,7 +26,7 @@ function App() {
     setCorrectAnswers(0);
   };
   
-  const question = questions.find(q=> q.id === currentQuestionId)
+  const question = questions.find(q=> q.id === currentQuestionId);
   
   const onAnswer = useCallback((answer) => {
     fetch(baseUrl + 'correct_answers/' + question.id)
