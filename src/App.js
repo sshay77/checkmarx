@@ -18,6 +18,7 @@ function App() {
     .then(questions=> {
       setQuestions(questions);
     })
+    .catch(error => console.log(error.message));
   }, []);
 
   const onRestart = ()=>{
